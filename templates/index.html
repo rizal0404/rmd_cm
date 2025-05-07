@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rawmix Design Calculator</title>
+</head>
+<body>
+    <h1>Rawmix Design Cement Calculator</h1>
+    <form method="POST" action="/calculate">
+        <label>Clinker (LOI, SO3, BTL):</label>
+        <input type="text" name="clinker" value="2.1,0.3,72"><br>
+        <label>Gypsum (LOI, SO3, BTL):</label>
+        <input type="text" name="gypsum" value="18,36,0.3"><br>
+        <label>Limestone (LOI, SO3, BTL):</label>
+        <input type="text" name="limestone" value="40,0.2,55"><br>
+        <label>Trass (LOI, SO3, BTL):</label>
+        <input type="text" name="trass" value="14,0.4,35"><br>
+        <label>FineTrass (LOI, SO3, BTL):</label>
+        <input type="text" name="finetrass" value="12,0.3,30"><br>
+        <label>% FineTrass:</label>
+        <input type="number" step="0.01" name="persen_finetrass"><br>
+        <label>Target LOI:</label>
+        <input type="number" step="0.01" name="LOI_target"><br>
+        <label>Target SO3:</label>
+        <input type="number" step="0.01" name="SO3_target"><br>
+        <label>Target BTL:</label>
+        <input type="number" step="0.01" name="BTL_target"><br>
+        <button type="submit">Hitung</button>
+    </form>
+    {% if result %}
+        <h2>Hasil Komposisi Rawmix:</h2>
+        <ul>
+            <li>Clinker: {{ result[0] }}%</li>
+            <li>Gypsum: {{ result[1] }}%</li>
+            <li>Limestone: {{ result[2] }}%</li>
+            <li>Trass: {{ result[3] }}%</li>
+            <li>FineTrass: {{ result[4] }}%</li>
+        </ul>
+    {% endif %}
+</body>
+</html>
